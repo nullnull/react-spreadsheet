@@ -153,10 +153,11 @@ export function join(
 export function split<T>(
   csv: string,
   transform: (value: string) => T,
-  horizontalSeparator = "\t",
-  verticalSeparator: string | RegExp = /\r\n|\n|\r/
+  horizontalSeparator = "\t"
 ): Matrix<T> {
+  const verticalSeparator = /\r\n|\n|\r/
   return csv
+    .replace(new RegExp('(' + verticalSeparator.source + ')$'), '') // delete trailing new line character
     .split(verticalSeparator)
     .map((row) => row.split(horizontalSeparator).map(transform));
 }
