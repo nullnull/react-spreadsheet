@@ -474,10 +474,11 @@ function join(matrix, horizontalSeparator, verticalSeparator) {
  * Parses a CSV separated by a horizontalSeparator and verticalSeparator into a
  * Matrix using a transform function
  */
-function split(csv, transform, horizontalSeparator, verticalSeparator) {
+function split(csv, transform, horizontalSeparator) {
     if (horizontalSeparator === void 0) { horizontalSeparator = "\t"; }
-    if (verticalSeparator === void 0) { verticalSeparator = /\r\n|\n|\r/; }
+    var verticalSeparator = /\r\n|\n|\r/;
     return csv
+        .replace(new RegExp('(' + verticalSeparator.source + ')$'), '') // delete trailing new line character
         .split(verticalSeparator)
         .map(function (row) { return row.split(horizontalSeparator).map(transform); });
 }
@@ -742,7 +743,7 @@ function paste(state, text) {
         var active, copiedMatrix, copied, minPoint, copiedSize, requiredRows, paddedData, _a, data, commit;
         return __generator(this, function (_b) {
             active = state.active;
-            if (!text || !active) {
+            if (!active) {
                 return [2 /*return*/, null];
             }
             copiedMatrix = split(text, function (value) { return ({ value: value }); });

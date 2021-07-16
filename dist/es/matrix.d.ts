@@ -26,7 +26,7 @@ export declare function join(matrix: Matrix<unknown>, horizontalSeparator?: stri
  * Parses a CSV separated by a horizontalSeparator and verticalSeparator into a
  * Matrix using a transform function
  */
-export declare function split<T>(csv: string, transform: (value: string) => T, horizontalSeparator?: string, verticalSeparator?: string | RegExp): Matrix<T>;
+export declare function split<T>(csv: string, transform: (value: string) => T, horizontalSeparator?: string): Matrix<T>;
 /** Returns whether the point exists in the matrix or not. */
 export declare function has(row: number, column: number, matrix: Matrix<any>): boolean;
 declare type Size = {
