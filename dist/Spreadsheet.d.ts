@@ -1,0 +1,35 @@
+import * as React from "react";
+import { Store } from "unistore";
+import { Parser as FormulaParser } from "hot-formula-parser";
+import * as Types from "./types";
+import { Props as TableProps } from "./Table";
+import { Props as RowProps } from "./Row";
+import { Props as CornerIndicatorProps } from "./CornerIndicator";
+import { Props as ColumnIndicatorProps } from "./ColumnIndicator";
+import { Props as RowIndicatorProps } from "./RowIndicator";
+import "./Spreadsheet.css";
+export declare type Props<CellType extends Types.CellBase> = {
+    formulaParser?: FormulaParser;
+    columnLabels?: string[];
+    rowLabels?: string[];
+    hideRowIndicators?: boolean;
+    hideColumnIndicators?: boolean;
+    ColumnIndicator?: React.ComponentType<ColumnIndicatorProps>;
+    CornerIndicator?: React.ComponentType<CornerIndicatorProps>;
+    RowIndicator?: React.ComponentType<RowIndicatorProps>;
+    Table?: React.ComponentType<TableProps>;
+    Row?: React.ComponentType<RowProps>;
+    Cell?: Types.CellComponent<CellType>;
+    DataViewer?: Types.DataViewerComponent<CellType>;
+    DataEditor?: Types.DataEditorComponent<CellType>;
+    onKeyDown?: (event: React.KeyboardEvent) => void;
+    getBindingsForCell?: Types.getBindingsForCell<CellType>;
+    store: Store<Types.StoreState<CellType>>;
+};
+declare type State = {
+    rows: number;
+    columns: number;
+    mode: Types.Mode;
+};
+declare const _default: React.ComponentClass<Props<Types.CellBase<any>> | (Props<Types.CellBase<any>> & State), unknown> | React.FC<Props<Types.CellBase<any>> | (Props<Types.CellBase<any>> & State)>;
+export default _default;

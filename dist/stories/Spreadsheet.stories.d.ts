@@ -1,0 +1,18 @@
+import { Story, Meta } from "@storybook/react/types-6-0";
+import { Props, CellBase } from "..";
+declare type StringCell = CellBase<string | undefined>;
+declare type NumberCell = CellBase<number | undefined>;
+declare const _default: Meta<Props<CellBase<string | undefined>>>;
+export default _default;
+export declare const Basic: Story<Props<StringCell>>;
+export declare const Controlled: Story<Props<StringCell>>;
+export declare const CustomRowLabels: Story<Props<StringCell>>;
+export declare const CustomColumnLabels: Story<Props<StringCell>>;
+export declare const HideIndicators: Story<Props<StringCell>>;
+export declare const Readonly: Story<Props<StringCell>>;
+export declare const WithAsyncCellData: Story<Props<StringCell>>;
+export declare const WithCustomCell: Story<Props<CellBase>>;
+export declare const RangeCell: Story<Props<NumberCell>>;
+export declare const WithSelectCell: Story<Props<StringCell>>;
+export declare const WithCornerIndicator: Story<Props<StringCell>>;
+export declare const Filter: Story<Props<StringCell>>;
