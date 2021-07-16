@@ -1268,6 +1268,7 @@ var Spreadsheet = /** @class */ (function (_super) {
                     event.stopPropagation();
                     if (event.clipboardData) {
                         text = readTextFromClipboard(event);
+                        console.log("clipboard text: " + JSON.stringify(text));
                         this.props.paste(text);
                     }
                 }
