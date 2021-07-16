@@ -108,6 +108,7 @@ class Spreadsheet<CellType extends Types.CellBase> extends React.PureComponent<
       event.stopPropagation();
       if (event.clipboardData) {
         const text = readTextFromClipboard(event);
+        console.log(`clipboard text: ${JSON.stringify(text)}`)
         this.props.paste(text);
       }
     }
